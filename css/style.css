@@ -118,15 +118,15 @@ button, input, textarea, .main-nav a, .logo {
 /* ========================================================================= */
 .hero-section {
     position: relative;
-    height: 100vh;
+    height: 100vh; /* Залишаємо, бо працює добре */
     display: flex;
-    justify-content: center; /* Центрування по горизонталі */
-    align-items: center; /* Центрування по вертикалі */
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    overflow-x: hidden; /* Запобігаємо горизонтальному скролу */
-    overflow-y: visible; /* Дозволяємо серцям "випливати" */
-    max-width: 100vw; /* Обмежуємо ширину секції до viewport */
-    margin: 0 auto; /* Центруємо всю секцію */
+    overflow-x: hidden;
+    overflow-y: visible;
+    max-width: 100vw;
+    margin: 0 auto;
 }
 
 .hero-canvas {
@@ -139,23 +139,26 @@ button, input, textarea, .main-nav a, .logo {
 }
 
 .hero-content {
-    z-index: 1; /* Вище за canvas */
-    width: 100%; /* Забезпечуємо повну ширину */
-    max-width: 800px; /* Обмежуємо ширину для уникнення розтягнення */
-    padding: 0 20px; /* Додаємо відступи для адаптивності */
-    margin: 0 auto; /* Центруємо вміст */
-    background: rgba(249, 249, 244, 0.9); /* Кремовий фон із прозорістю для сердець */
+    z-index: 1;
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px; /* ❌ Без вертикальних padding */
+    margin: 0 auto;
+    background: transparent;
+    pointer-events: auto;
+}
+
+
+.hero-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px; /* 🔧 Більше простору після заголовка */
+    font-weight: 700;
+    background: transparent;
+    word-break: break-word;
 }
 
 .hero-title {
-    font-size: 2.2rem; /* Базовий розмір для мобілок */
-    margin-bottom: 15px;
-    font-weight: 700;
-    opacity: 0;
-    transform: scale(0.8) translateY(20px);
-    animation: fadeScaleIn 2s ease-out 0.2s forwards;
-    background: transparent; /* Запобігаємо затулянню сердець */
-    word-break: break-word; /* Дозволяємо розбиття на рядки */
+    line-height: 1.4;
 }
 
 @keyframes fadeScaleIn {
@@ -167,45 +170,66 @@ button, input, textarea, .main-nav a, .logo {
 .hero-subtitle {
     font-size: 1.1rem;
     color: var(--color-dark-grey);
-    margin-bottom: 30px;
-    word-break: break-word; /* Дозволяємо розбиття на рядки */
+    margin-bottom: 40px; /* 🔧 Ще більше простору перед кнопками */
+    word-break: break-word;
 }
+
 
 .selection-block {
     display: flex;
-    justify-content: center; /* Центруємо кнопки */
-    gap: 15px; /* Додаємо відступ між кнопками */
+    justify-content: center;
+    gap: 15px;
+    margin-top: 0; /* ✅ Не додаємо зайвого зверху */
 }
+
 
 .cta-button {
     display: inline-block;
-    padding: 12px 25px;
-    font-size: 1rem;
+    padding: 14px 28px;
+    font-size: 1.1rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: var(--border-radius-soft); /* Початковий радіус */
-    transition: all var(--transition-speed);
-    margin: 0;
-    color: var(--color-white); /* Контрастний текст */
-    min-width: 180px; /* Фіксована мінімальна ширина для уніфікації */
-    text-align: center; /* Центруємо текст всередині */
-    position: relative; /* Для ефекту морфінгу */
-    overflow: hidden; /* Обрізаємо перехід форми */
+    border-radius: 11px;
+    transition: all 0.4s ease;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px); /* ✨ Glassmorphism */
 }
 
+
 .cta-him {
-    background: linear-gradient(45deg, var(--color-fuchsia), #F06292); /* Фуксія → рожевий */
+    background: linear-gradient(135deg, #890B0B, #1E3C72); /* Бордо → темно-синій */
 }
 
 .cta-her {
-    background: linear-gradient(45deg, #2196F3, #64B5F6); /* Синій → світло-синій */
+    background: linear-gradient(135deg, #890B0B, #F06292); /* Бордо → фуксія */
+}
+
+.cta-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::after {
+    width: 200%;
+    height: 200%;
 }
 
 .cta-button:hover {
-    border-radius: 50px; /* Морфінг до еліпса */
-    transform: scale(1.05); /* Легке масштабування */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Посилена тінь для глибини */
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Адаптивність */
 @media (max-width: 480px) {
