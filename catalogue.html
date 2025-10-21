@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket 2 Love – Каталог Профілів</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">ticket_2_love</div>
+        <nav class="main-nav">
+            <a href="index.html">Головна</a>
+            <a href="index.html#about">Про Нас</a> 
+            <button id="view-favorites" class="favorites-button cta-her">Обрані (0)</button>
+            <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="profile-catalogue" class="catalogue-section">
+            <h1 id="catalogue-title" class="section-title fade-in">Каталог Профілів</h1> 
+            
+            <div class="filters-sort-bar fade-in">
+                <button id="open-filters" class="filter-button cta-him">Фільтри та Сортування</button> 
+                <button id="sort-age" class="filter-button cta-him">Сортувати за Віком</button>
+                <a href="application.html" id="proceed-to-application" class="cta-button cta-her disabled" disabled>
+                    Перейти до заявки <span id="select-count">(0/3)</span>
+                </a>
+            </div>
+
+            <div class="profile-grid" id="profile-grid"> 
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ticket 2 Love. Усі права захищені. | <a href="#">Політика Конфіденційності</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
