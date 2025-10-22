@@ -786,55 +786,13 @@ input[type="range"]::-moz-range-thumb {
 
 /* ========================================================================= */
 /* 11. БЛОК "ПРО НАС" */
-.about-section {
-    position: relative;
-    padding: 80px 20px;
-    background-color: #8DAB96;
-    color: var(--color-white);
+.about-photo-gradient {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(137,11,11,0.4), transparent 70%);
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-}
-
-.about-section::before,
-.about-section::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #890b0b;
-    box-shadow: 0 0 5px #890b0b, 0 0 10px #890b0b, 0 0 15px #890b0b;
-    z-index: 10;
-}
-
-.about-section::before {
-    top: 0;
-}
-
-.about-section::after {
-    bottom: 0;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 960px;
-    margin: 0 auto;
-    gap: 40px;
-    text-align: left;
-    z-index: 1;
-}
-
-.about-photo-wrapper {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0;
 }
 
 .about-photo {
@@ -842,65 +800,30 @@ input[type="range"]::-moz-range-thumb {
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 50%;
 }
 
-.about-text-content {
-    flex: 1;
-    max-width: 600px;
+/* Анімація списку */
+.animated-list li {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease-out forwards;
 }
 
-/* 🔧 Новий заголовок */
-.about-text-content h3 {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    line-height: 1.3;
-    margin-bottom: 20px;
-    color: #fff;
-    font-weight: 700;
-}
+.animated-list li:nth-child(1) { animation-delay: 0.2s; }
+.animated-list li:nth-child(2) { animation-delay: 0.4s; }
+.animated-list li:nth-child(3) { animation-delay: 0.6s; }
+.animated-list li:nth-child(4) { animation-delay: 0.8s; }
+.animated-list li:nth-child(5) { animation-delay: 1s; }
+.animated-list li:nth-child(6) { animation-delay: 1.2s; }
 
-/* 🔧 Параграфи */
-.about-text-content p {
-    font-family: var(--font-sans);
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: var(--color-white);
-}
-
-/* 🔧 Список послуг */
-.about-text-content ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 10px;
-}
-
-.about-text-content ul li {
-    font-family: var(--font-sans);
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    color: var(--color-white);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Адаптація для десктопу */
-@media (min-width: 768px) {
-    .about-content {
-        flex-direction: row;
-        gap: 60px;
-    }
-
-    .about-photo-wrapper {
-        order: 1;
-    }
-
-    .about-text-content {
-        order: 2;
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+
 /* ========================================================================= */
 /* 12. FOOTER З СОЦІАЛКАМИ */
 /* ========================================================================= */
@@ -931,103 +854,3 @@ footer {
 }
 
 /* ========================================================================= */
-/* ========================================================================= */
-/* 13. БЛОК "ПРО НАС" (Оновлений макет як на скріншоті) */
-/* ========================================================================= */
-.about-section {
-    position: relative; 
-    padding: 80px 20px; 
-    background-color: #8DAB96; /* Оливково-зелений фон */
-    color: var(--color-white); 
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; 
-}
-
-/* Неонові лінії зверху та знизу */
-.about-section::before,
-.about-section::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 3px; 
-    background-color: #890b0b; /* Колір неонової лінії */
-    box-shadow: 0 0 5px #890b0b, 0 0 10px #890b0b, 0 0 15px #890b0b; /* Неоновий ефект */
-    z-index: 10; 
-}
-
-.about-section::before {
-    top: 0;
-}
-
-.about-section::after {
-    bottom: 0;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    max-width: 960px; 
-    margin: 0 auto;
-    gap: 40px; 
-    text-align: left; 
-    z-index: 1; 
-}
-
-.about-photo-wrapper {
-    width: 280px; 
-    height: 280px; 
-    border-radius: 50%; /* Робить круглу форму */
-    overflow: hidden; 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); 
-    flex-shrink: 0; 
-}
-
-.about-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    display: block; 
-}
-
-.about-text-content {
-    flex: 1; 
-    max-width: 600px; 
-}
-
-.about-text-content h2 { 
-    font-family: var(--font-serif); 
-    font-size: 2.2rem; 
-    line-height: 1.3; 
-    margin-bottom: 25px;
-    color: #3C5A48; /* Темно-зелений колір */
-    font-weight: bold; 
-}
-
-.about-text-content p {
-    font-family: var(--font-sans); 
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: var(--color-white); 
-}
-
-/* Медіа-запит для десктопних версій (768px і вище) */
-@media (min-width: 768px) {
-    .about-content {
-        flex-direction: row; 
-        gap: 60px; 
-    }
-
-    .about-photo-wrapper {
-        order: 1; /* Зображення зліва */
-    }
-
-    .about-text-content {
-        order: 2; /* Текст справа */
-    }
-}
-
