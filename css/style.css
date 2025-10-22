@@ -790,8 +790,9 @@ input[type="range"]::-moz-range-thumb {
 /* ========================================================================= */
 .about-section {
     padding: 80px 20px;
-    background: #fff;
     text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 100%);
+    border-top: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .about-wrapper {
@@ -937,5 +938,6 @@ footer {
 }
 
 /* ========================================================================= */
+
 
 
