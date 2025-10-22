@@ -786,54 +786,121 @@ input[type="range"]::-moz-range-thumb {
 
 /* ========================================================================= */
 /* 11. БЛОК "ПРО НАС" */
-/* ========================================================================= */
 .about-section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: var(--color-white); /* Білий фон для контрасту */
+    position: relative;
+    padding: 80px 20px;
+    background-color: #8DAB96;
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.about-section::before,
+.about-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #890b0b;
+    box-shadow: 0 0 5px #890b0b, 0 0 10px #890b0b, 0 0 15px #890b0b;
+    z-index: 10;
+}
+
+.about-section::before {
+    top: 0;
+}
+
+.about-section::after {
+    bottom: 0;
 }
 
 .about-content {
     display: flex;
-    flex-direction: column; /* Вертикально на мобілках */
+    flex-direction: column;
     align-items: center;
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
-    gap: 30px;
+    gap: 40px;
+    text-align: left;
+    z-index: 1;
+}
+
+.about-photo-wrapper {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
 }
 
 .about-photo {
     width: 100%;
-    max-width: 300px;
-    border-radius: 50%; /* Кругле фото */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-speed);
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.about-photo:hover {
-    transform: scale(1.05); /* Легкий zoom на hover */
+.about-text-content {
+    flex: 1;
+    max-width: 600px;
 }
 
-.about-text {
+/* 🔧 Новий заголовок */
+.about-text-content h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 700;
+}
+
+/* 🔧 Параграфи */
+.about-text-content p {
     font-family: var(--font-sans);
-    font-size: 1.1rem;
-    color: var(--color-dark-grey);
-    text-align: left; /* Лівий вирівнювання для тексту */
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--color-white);
 }
 
+/* 🔧 Список послуг */
+.about-text-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.about-text-content ul li {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Адаптація для десктопу */
 @media (min-width: 768px) {
     .about-content {
-        flex-direction: row; /* Горизонтально на десктопі */
-        text-align: left;
+        flex-direction: row;
+        gap: 60px;
     }
-    .about-photo {
-        max-width: 250px;
+
+    .about-photo-wrapper {
+        order: 1;
     }
-    .about-text {
-        max-width: 60%;
+
+    .about-text-content {
+        order: 2;
     }
 }
-
 /* ========================================================================= */
 /* 12. FOOTER З СОЦІАЛКАМИ */
 /* ========================================================================= */
@@ -963,3 +1030,4 @@ footer {
         order: 2; /* Текст справа */
     }
 }
+
