@@ -863,3 +863,118 @@ footer {
     transform: scale(1.2);
 }
 
+/* ========================================================================= */
+/* 13. БЛОК "ПРО НАС" */
+/* ========================================================================= */
+.about-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: var(--color-white); /* Білий фон для контрасту */
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column; /* Вертикально на мобілках */
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px; /* Більше простору перед контентом */
+    font-family: var(--font-serif);
+}
+
+.about-inner {
+    display: flex;
+    flex-wrap: wrap; /* Дозволяємо обгортання на маленьких екранах */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.about-photo {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px 20px 40px 40px; /* Асиметричні кути */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Посилена тінь */
+    position: relative;
+    overflow: hidden; /* Для градієнта */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    flex: 0 0 auto; /* Фіксуємо розмір */
+}
+
+.about-photo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(137, 11, 11, 0.1), rgba(30, 60, 114, 0.1)); /* Тонкий градієнт */
+    z-index: 1;
+}
+
+.about-photo:hover {
+    transform: perspective(1000px) rotateX(5deg) translateZ(10px); /* 3D-ефект */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Посилена тінь при hover */
+}
+
+.about-text {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--color-dark-grey);
+    text-align: left; /* Лівий вирівнювання для тексту */
+    flex: 1; /* Заповнює доступний простір */
+    min-width: 0; /* Запобігає обгортанню тексту */
+}
+
+.about-text h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-fuchsia); /* Акцент для імені */
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+.about-text ul {
+    list-style: none; /* Прибираємо дефолтні маркери */
+    padding-left: 0;
+}
+
+.about-text li {
+    padding-left: 20px; /* Відступ для емодзі */
+    position: relative;
+}
+
+.about-text li::before {
+    content: ""; /* Порожній псевдоелемент */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: var(--color-fuchsia); /* Крапка як маркер */
+    border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Змінено, бо вирівнюємо вручну */
+    }
+    .about-inner {
+        flex-direction: row; /* Фото зліва, текст справа */
+    }
+    .about-photo {
+        max-width: 250px;
+    }
+    .about-text {
+        max-width: 60%;
+    }
+}
