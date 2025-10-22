@@ -2,25 +2,27 @@
 /* 1. ДИЗАЙН-СИСТЕМА: ЗМІННІ */
 /* ========================================================================= */
 :root {
-    /* Кольорова Палітра */
-    --color-cream: #F9F9F4;           /* Фон/Простір - Теплий Кремовий */
-    --color-dark-grey: #333333;       /* Основний Текст */
-    --color-fuchsia: #E91E63;         /* Акцент - Фуксія (CTA) */
-    --color-soft-gold: #B79482;       /* Вторинний Акцент - Рожеве Золото */
-    --color-light-grey: #CCCCCC;      /* Нейтральний */
+    /* ✅ НОВИЙ КОЛІР ЛОГОТИПУ */
+    --color-logo: #890B0B;           /* ОФІЦІЙНИЙ КОЛІР ЛОГОТИПУ */
+    --color-logo-light: #A81010;     /* Hover + градієнти */
+    --color-logo-dark: #6A0909;      /* Тіні */
+    
+    /* ДОПОМІЖНІ */
+    --color-pink: #f06292;           /* Залишаємо для градієнтів */
+    --color-purple: #9c27b0;         /* Фіолетовий акцент */
+    
+    /* ФОНИ */
+    --color-navy: #1a1a2e;           /* Футер */
+    --color-light-pink: #fdf2f8;     /* Секції */
+    
+    /* ГЛАССМОРФІЗМ */
+    --color-glass: rgba(255, 255, 255, 0.05);
+    --color-glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* ТЕКСТ */
     --color-white: #ffffff;
-    
-    /* Градієнти */
-    --gradient-logo: linear-gradient(45deg, var(--color-fuchsia), var(--color-soft-gold));
-    
-    /* Типографіка */
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', sans-serif;
-    
-    /* Інші змінні */
-    --border-radius-soft: 8px;        /* М'яко заокруглені кути */
-    --transition-speed: 0.3s ease-in-out; /* Плавність анімацій */
-    --ripple-color: rgba(233, 30, 99, 0.3); /* Колір ripple для CTA */
+    --color-dark-grey: #333333;
+    --color-medium-grey: #666666;
 }
 
 /* ========================================================================= */
@@ -1061,6 +1063,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ========================================================================= */
+
 
 
 
