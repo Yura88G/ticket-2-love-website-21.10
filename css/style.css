@@ -1,26 +1,13 @@
 /* ========================================================================= */
 /* 1. ДИЗАЙН-СИСТЕМА: ЗМІННІ */
 /* ========================================================================= */
-:root {
-    /* Кольорова Палітра */
-    --color-cream: #F9F9F4;           /* Фон/Простір - Теплий Кремовий */
-    --color-dark-grey: #333333;       /* Основний Текст */
-    --color-fuchsia: #E91E63;         /* Акцент - Фуксія (CTA) */
-    --color-soft-gold: #B79482;       /* Вторинний Акцент - Рожеве Золото */
-    --color-light-grey: #CCCCCC;      /* Нейтральний */
-    --color-white: #ffffff;
-    
-    /* Градієнти */
-    --gradient-logo: linear-gradient(45deg, var(--color-fuchsia), var(--color-soft-gold));
-    
-    /* Типографіка */
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', sans-serif;
-    
-    /* Інші змінні */
-    --border-radius-soft: 8px;        /* М'яко заокруглені кути */
-    --transition-speed: 0.3s ease-in-out; /* Плавність анімацій */
-    --ripple-color: rgba(233, 30, 99, 0.3); /* Колір ripple для CTA */
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-logo), var(--color-logo-light));
+    box-shadow: 0 10px 30px rgba(137, 11, 11, 0.3);  /* #890B0B */
+}
+
+.btn-primary:hover {
+    box-shadow: 0 20px 40px rgba(137, 11, 11, 0.4);
 }
 
 /* ========================================================================= */
@@ -1009,19 +996,18 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .social-btn:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: rgba(233, 30, 99, 0.5);
-    background: rgba(233, 30, 99, 0.1);
+    border-color: rgba(137, 11, 11, 0.5);      /* #890B0B */
+    background: rgba(137, 11, 11, 0.1);
     box-shadow: 
-        0 20px 40px rgba(233, 30, 99, 0.3),
-        0 0 0 1px rgba(233, 30, 99, 0.5);
+        0 20px 40px rgba(137, 11, 11, 0.3),
+        0 0 0 1px rgba(137, 11, 11, 0.5);
 }
 
-/* КОЛЬОРИ ДЛЯ КОЖНОЇ МЕРЕЖІ */
-.social-btn.instagram:hover { box-shadow: 0 20px 40px rgba(225, 48, 108, 0.4); }
-.social-btn.telegram:hover { box-shadow: 0 20px 40px rgba(0, 136, 204, 0.4); }
-.social-btn.tiktok:hover { box-shadow: 0 20px 40px rgba(0, 192, 116, 0.4); }
-.social-btn.whatsapp:hover { box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4); }
+/* Кожна кнопка */
+.social-btn.instagram:hover { box-shadow: 0 20px 40px rgba(137, 11, 11, 0.4); }
+.social-btn.telegram:hover  { box-shadow: 0 20px 40px rgba(137, 11, 11, 0.4); }
+.social-btn.tiktok:hover    { box-shadow: 0 20px 40px rgba(137, 11, 11, 0.4); }
+.social-btn.phone:hover     { box-shadow: 0 20px 40px rgba(137, 11, 11, 0.4); }
 
 .footer-legal {
     padding-top: 40px;
@@ -1062,6 +1048,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ========================================================================= */
+
 
 
 
