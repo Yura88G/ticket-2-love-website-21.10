@@ -1,13 +1,26 @@
 /* ========================================================================= */
 /* 1. ДИЗАЙН-СИСТЕМА: ЗМІННІ */
 /* ========================================================================= */
-.btn-primary {
-    background: linear-gradient(135deg, var(--color-logo), var(--color-logo-light));
-    box-shadow: 0 10px 30px rgba(137, 11, 11, 0.3);  /* #890B0B */
-}
-
-.btn-primary:hover {
-    box-shadow: 0 20px 40px rgba(137, 11, 11, 0.4);
+:root {
+    /* Кольорова Палітра */
+    --color-cream: #F9F9F4;           /* Фон/Простір - Теплий Кремовий */
+    --color-dark-grey: #333333;       /* Основний Текст */
+    --color-fuchsia: #E91E63;         /* Акцент - Фуксія (CTA) */
+    --color-soft-gold: #B79482;       /* Вторинний Акцент - Рожеве Золото */
+    --color-light-grey: #CCCCCC;      /* Нейтральний */
+    --color-white: #ffffff;
+    
+    /* Градієнти */
+    --gradient-logo: linear-gradient(45deg, var(--color-fuchsia), var(--color-soft-gold));
+    
+    /* Типографіка */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    /* Інші змінні */
+    --border-radius-soft: 8px;        /* М'яко заокруглені кути */
+    --transition-speed: 0.3s ease-in-out; /* Плавність анімацій */
+    --ripple-color: rgba(233, 30, 99, 0.3); /* Колір ripple для CTA */
 }
 
 /* ========================================================================= */
@@ -1048,6 +1061,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ========================================================================= */
+
 
 
 
