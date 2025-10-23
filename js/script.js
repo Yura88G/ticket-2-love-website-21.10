@@ -320,167 +320,96 @@ document.addEventListener('DOMContentLoaded', () => {
 // =========================================================================
 // =========================================================================
 // 6. CANVAS АНІМАЦІЯ СЕРДЕЦЬ У HERO-СЕКЦІЇ
-// Код JavaScript для анімації "Рідкого Градієнта" та Сердечок
-        document.addEventListener('DOMContentLoaded', () => {
-            const canvas = document.getElementById('liquidCanvas');
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            
-            // Кольорова палітра для градієнтних "плям"
-            const colors = [
-                '#890B0B', // Бордовий Бренду
-                '#4D0606', // Глибокий Рубін
-                '#B4324E', // Насичений Малиновий
-                '#2C0B3B', // Темний Фіалковий
-            ];
+// =========================================================================
+const canvas = document.getElementById('hearts-canvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let hearts = [];
+    let canvasWidth, canvasHeight;
 
-            // Налаштування для "плям" (Blobs)
-            const blobs = [];
-            const BLOB_COUNT = 8;
-            const MAX_RADIUS = 300;
-            const MIN_RADIUS = 150;
+    // Налаштування розміру canvas
+    function resizeCanvas() {
+        canvasWidth = canvas.width = window.innerWidth;
+        canvasHeight = canvas.height = document.querySelector('.hero-section').offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-            // Налаштування для рожевих сердечок
-            const hearts = [];
-            const MAX_HEARTS = 20;
+    // Клас для серця
+    class Heart {
+        constructor() {
+            this.x = Math.random() * canvasWidth;
+            this.y = canvasHeight + 20;
+            this.size = Math.random() * 20 + 10;
+            this.speedY = Math.random() * -2 - 1;
+            this.speedX = (Math.random() - 0.5) * 2;
+            this.opacity = Math.random() * 0.5 + 0.3;
+        }
 
-            /**
-             * Клас для анімованих кольорових плям (Blobs)
-             */
-            class Blob {
-                constructor() {
-                    this.radius = Math.random() * (MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS;
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 0.3; // Дуже повільна швидкість
-                    this.vy = (Math.random() - 0.5) * 0.3;
-                    this.color = colors[Math.floor(Math.random() * colors.length)];
-                }
-
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-
-                    // Змінюємо напрямок, коли пляма досягає краю
-                    if (this.x - this.radius > width) this.x = -this.radius;
-                    if (this.x + this.radius < 0) this.x = width + this.radius;
-                    if (this.y - this.radius > height) this.y = -this.radius;
-                    if (this.y + this.radius < 0) this.y = height + this.radius;
-                }
-
-                draw() {
-                    ctx.beginPath();
-                    // Створюємо градієнт всередині плями для м'якості
-                    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-                    gradient.addColorStop(0, this.color + 'FF'); // Повна непрозорість у центрі
-                    gradient.addColorStop(1, this.color + '00'); // Повна прозорість на краю
-                    
-                    ctx.fillStyle = gradient;
-                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                    ctx.fill();
-                }
+        update() {
+            this.y += this.speedY;
+            this.x += this.speedX;
+            this.opacity -= 0.002;
+            if (this.y < -this.size || this.opacity <= 0) {
+                this.y = canvasHeight + 20;
+                this.x = Math.random() * canvasWidth;
+                this.opacity = Math.random() * 0.5 + 0.3;
             }
-            
-            /**
-             * Клас для рожевих сердечок
-             */
-            class Heart {
-                constructor() {
-                    this.size = Math.random() * 8 + 4; // Розмір від 4 до 12
-                    this.x = Math.random() * width;
-                    this.y = height + this.size; // Починаємо знизу
-                    this.vy = -(Math.random() * 0.5 + 0.5); // Швидкість підйому вгору
-                    this.opacity = 1;
-                    this.maxOpacity = Math.random() * 0.7 + 0.3; // Максимальна прозорість для м'якості
-                }
+        }
 
-                update() {
-                    this.y += this.vy;
-                    // Зменшуємо прозорість при підйомі
-                    if (this.y < height * 0.7) {
-                        this.opacity = this.maxOpacity * (this.y / (height * 0.7));
-                    }
-                }
+        draw() {
+            const gradient = ctx.createLinearGradient(this.x, this.y, this.x + this.size, this.y + this.size);
+            gradient.addColorStop(0, '#C2185B');
+            gradient.addColorStop(1, '#8D6E63');
+            ctx.fillStyle = gradient;
+            ctx.globalAlpha = Math.max(this.opacity, 0.5);
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 5;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
 
-                draw() {
-                    ctx.fillStyle = `rgba(255, 105, 180, ${this.opacity})`; // #FF69B4 - Hot Pink
-                    ctx.shadowColor = 'rgba(255, 105, 180, 0.8)';
-                    ctx.shadowBlur = 5;
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y + this.size / 4);
+            ctx.bezierCurveTo(this.x - this.size / 2, this.y - this.size / 2, this.x - this.size, this.y + this.size / 4, this.x, this.y + this.size);
+            ctx.bezierCurveTo(this.x + this.size, this.y + this.size / 4, this.x + this.size / 2, this.y - this.size / 2, this.x, this.y + this.size / 4);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+            ctx.shadowBlur = 0;
+        }
+    }
 
-                    // Малюємо просте сердечко
-                    const r = this.size;
-                    const cpx = this.x;
-                    const cpy = this.y;
+    // Ініціалізація сердець
+    function initHearts() {
+        hearts = [];
+        const heartCount = Math.floor(canvasWidth / 50);
+        for (let i = 0; i < heartCount; i++) {
+            hearts.push(new Heart());
+        }
+    }
+    initHearts();
 
-                    ctx.beginPath();
-                    ctx.moveTo(cpx, cpy + r); 
-                    ctx.bezierCurveTo(cpx + r, cpy + r, cpx + r, cpy, cpx, cpy);
-                    ctx.bezierCurveTo(cpx - r, cpy, cpx - r, cpy + r, cpx, cpy + r);
-                    ctx.closePath();
-                    ctx.fill();
+    // Анімація
+    let lastTime = 0;
+    function animate(timestamp) {
+        const deltaTime = timestamp - lastTime;
+        lastTime = timestamp;
 
-                    ctx.shadowBlur = 0; // Вимикаємо тінь
-                }
-            }
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-            /**
-             * Встановлення розміру Canvas
-             */
-            function resizeCanvas() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-                
-                // Створюємо Blobs лише один раз при першому запуску
-                if (blobs.length === 0) {
-                     for (let i = 0; i < BLOB_COUNT; i++) {
-                        blobs.push(new Blob());
-                    }
-                }
-            }
-
-            /**
-             * Основний цикл анімації
-             */
-            function animate() {
-                // Очищаємо Canvas
-                ctx.clearRect(0, 0, width, height);
-
-                // --- 1. Анімація "Рідкого Градієнта" (Blobs) ---
-                // Режим накладання "lighter" створює ефект світіння та змішування
-                ctx.globalCompositeOperation = 'lighter';
-                blobs.forEach(blob => {
-                    blob.update();
-                    blob.draw();
-                });
-
-                // --- 2. Анімація Сердечок ---
-                // Повертаємо нормальний режим для сердечок
-                ctx.globalCompositeOperation = 'source-over'; 
-                
-                // Додаємо нове сердечко (рідко та випадково)
-                if (hearts.length < MAX_HEARTS && Math.random() < 0.01) {
-                    hearts.push(new Heart());
-                }
-
-                // Оновлюємо та малюємо сердечка
-                for (let i = hearts.length - 1; i >= 0; i--) {
-                    const heart = hearts[i];
-                    heart.update();
-                    heart.draw();
-
-                    // Видаляємо сердечка, які вийшли за межі екрана
-                    if (heart.y + heart.size < 0) {
-                        hearts.splice(i, 1);
-                    }
-                }
-
-                requestAnimationFrame(animate);
-            }
-
-            // Ініціалізація: встановлюємо розмір і запускаємо цикл
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas(); 
-            animate();
+        // Серця
+        hearts.forEach(heart => {
+            heart.update();
+            heart.draw();
         });
+
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    // Переініціалізація при зміні розміру
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        initHearts();
+    });
+}
+
