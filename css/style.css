@@ -105,12 +105,11 @@ button, input, textarea, .main-nav a, .logo {
     }
 }
 /* ========================================================================= */
-/* ========================================================================= */
 /* 4. HERO СЕКЦІЯ */
 /* ========================================================================= */
 .hero-section {
     position: relative;
-    height: 100vh; /* Залишаємо, бо працює добре */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,7 +118,7 @@ button, input, textarea, .main-nav a, .logo {
     overflow-y: visible;
     max-width: 100vw;
     margin: 0 auto;
-    box-sizing: border-box; /* Забезпечуємо коректне обчислення ширини */
+    box-sizing: border-box;
 }
 
 .hero-canvas {
@@ -128,27 +127,34 @@ button, input, textarea, .main-nav a, .logo {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Фоновий canvas */
+    z-index: -1;
 }
 
 .hero-content {
     z-index: 1;
     width: 100%;
     max-width: 800px;
-    padding: 0 20px; /* Без вертикальних padding, як ти вказав */
+    padding: 0 20px;
     margin: 0 auto;
     background: transparent;
     pointer-events: auto;
-    position: relative; /* Для ripple контейнера */
+    position: relative;
 }
 
 .hero-title {
     font-size: 2.2rem;
-    margin-bottom: 25px; /* Більше простору після заголовка */
+    margin-bottom: 25px;
     font-weight: 700;
     background: transparent;
     word-break: break-word;
-    line-height: 1.4; /* Додано для кращого розбиття на рядки */
+    line-height: 1.4;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-dark-grey);
+    margin-bottom: 40px;
+    word-break: break-word;
 }
 
 @keyframes fadeScaleIn {
@@ -157,27 +163,37 @@ button, input, textarea, .main-nav a, .logo {
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.hero-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-dark-grey);
-    margin-bottom: 40px; /* Ще більше простору перед кнопками */
-    word-break: break-word;
-}
-.selection-section {
-  padding: 60px 20px;
-  background: transparent; /* або фон, якщо хочеш */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Адаптивність HERO */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
 }
 
+@media (min-width: 1200px) {
+    .hero-title {
+        font-size: calc(2.2rem + 1vw);
+    }
+}
+/* 4.1 SELECTION СЕКЦІЯ */
+/* ========================================================================= */
+.selection-section {
+    padding: 60px 20px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .selection-block {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 0; /* Не додаємо зайвого зверху */
-    position: relative; /* Контейнер для ripple */
+    position: relative;
+    flex-wrap: wrap;
 }
 
 .cta-button {
@@ -187,14 +203,14 @@ button, input, textarea, .main-nav a, .logo {
     font-weight: 600;
     text-decoration: none;
     border-radius: 11px;
-    transition: all 0.3s ease; /* Швидший перехід */
+    transition: all 0.3s ease;
     color: #fff;
     position: relative;
     overflow: hidden;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(6px); /* Glassmorphism */
-    min-width: 200px; /* Фіксована мінімальна ширина */
-    text-align: center; /* Центруємо текст */
+    backdrop-filter: blur(6px);
+    min-width: 200px;
+    text-align: center;
 }
 
 .cta-button::before {
@@ -204,16 +220,16 @@ button, input, textarea, .main-nav a, .logo {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent); /* Fallback для Glassmorphism */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
     z-index: -1;
 }
 
 .cta-him {
-    background: linear-gradient(135deg, #890B0B, #1E3C72); /* Бордо → темно-синій */
+    background: linear-gradient(135deg, #890B0B, #1E3C72);
 }
 
 .cta-her {
-    background: linear-gradient(135deg, #890B0B, #F06292); /* Бордо → фуксія */
+    background: linear-gradient(135deg, #890B0B, #F06292);
 }
 
 .cta-button::after {
@@ -231,7 +247,7 @@ button, input, textarea, .main-nav a, .logo {
 }
 
 .cta-button:hover::after {
-    width: 150%; /* Зменшено для кращого обрізання */
+    width: 150%;
     height: 150%;
 }
 
@@ -240,30 +256,18 @@ button, input, textarea, .main-nav a, .logo {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Адаптивність */
+/* Адаптивність SELECTION */
 @media (max-width: 480px) {
     .selection-block {
         flex-direction: column;
     }
-    .cta-button {
-        margin: 10px 0;
-        width: 100%; /* Заповнюємо на мобілках */
-        min-width: 0; /* Скидаємо мінімальну ширину */
-    }
-    .hero-title {
-        font-size: 1.8rem; /* Зменшення заголовка на мобілках */
-    }
-    .hero-subtitle {
-        font-size: 0.9rem; /* Зменшення підзаголовка */
-    }
-}
 
-/* Додатковий медіа-запит для великих екранів */
-@media (min-width: 1200px) {
-    .hero-title {
-        font-size: calc(2.2rem + 1vw); /* Динамічний розмір для великих екранів */
+    .cta-button {
+        width: 100%;
+        min-width: 0;
+        margin: 10px 0;
     }
-}
+
 /* ========================================================================= */
 /* 5. МЕДІА-ЗАПИТИ (АДАПТАЦІЯ ДЛЯ ДЕСКТОПА - MOBILE FIRST) */
 /* ========================================================================= */
@@ -1082,6 +1086,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ========================================================================= */
+
 
 
 
