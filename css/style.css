@@ -787,61 +787,82 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ========================================================================= */
-/* ========================================================================= */
-/* 11. БЛОК "ПРО НАС" - ЧИСТИЙ КОД БЕЗ КОНФЛІКТІВ */
+/* 11. БЛОК "ПРО НАС" - ЧИСТИЙ + ТРЕНДОВИЙ 2025 */
 /* ========================================================================= */
 .about-section {
     padding: 80px 20px;
-    text-align: center;
     background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 100%);
     border-top: 1px solid rgba(233, 30, 99, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.about-wrapper {
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+    opacity: 0.2;
+}
+
+.about-section:hover::before {
+    left: 100%;
+}
+
+.about-content {
     max-width: 1000px;
     margin: 0 auto;
 }
 
-.about-title {
+.section-title {
     font-size: 2.5rem;
     font-family: 'Playfair Display', serif;
     color: #333;
     margin-bottom: 60px;
     font-weight: 700;
+    position: relative;
+    background: linear-gradient(45deg, #e91e63, #9c27b0, #f06292);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.about-row {
+.about-inner {
     display: flex;
     gap: 60px;
     justify-content: center;
     align-items: flex-start;
 }
 
-.about-photo-wrapper {
-    flex: 0 0 280px;
-}
-
 .about-photo {
+    flex: 0 0 280px;
     width: 280px;
     height: 350px;
     object-fit: cover;
     border-radius: 20px 20px 40px 40px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     transition: all 0.4s ease;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .about-photo:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 0 20px rgba(233, 30, 99, 0.3);
 }
 
-.about-info {
+.about-text {
     flex: 1;
     max-width: 500px;
     text-align: left;
 }
 
-.about-info h3 {
+.about-text h3 {
     font-size: 1.8rem;
     color: #e91e63;
     margin-bottom: 15px;
@@ -849,20 +870,19 @@ input[type="range"]::-moz-range-thumb {
     font-weight: 700;
 }
 
-.about-info p {
+.about-text p {
     font-size: 1.1rem;
     color: #666;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
-.about-info ul {
+.about-text ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 0 -25px;
 }
 
-.about-info li {
+.about-text li {
     font-size: 1.1rem;
     color: #666;
     padding-left: 25px;
@@ -871,7 +891,7 @@ input[type="range"]::-moz-range-thumb {
     line-height: 1.6;
 }
 
-.about-info li::before {
+.about-text li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -882,16 +902,11 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
 }
 
-/* МОБІЛКА */
 @media (max-width: 768px) {
-    .about-row {
+    .about-inner {
         flex-direction: column;
         gap: 40px;
         align-items: center;
-    }
-    
-    .about-photo-wrapper {
-        flex: none;
     }
     
     .about-photo {
@@ -900,14 +915,20 @@ input[type="range"]::-moz-range-thumb {
         height: 350px;
     }
     
-    .about-info {
+    .about-text {
         text-align: center;
         max-width: 100%;
     }
     
-    .about-title {
+    .section-title {
         font-size: 2rem;
         margin-bottom: 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-photo:hover {
+        transform: none;
     }
 }
 /* ========================================================================= */
@@ -1063,6 +1084,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ========================================================================= */
+
 
 
 
