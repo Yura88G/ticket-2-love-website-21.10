@@ -25,17 +25,26 @@
     </header>
 
     <main>
-        <section id="hero" class="hero-section">
-  <canvas class="hero-canvas" id="hearts-canvas"></canvas>
-  <div class="hero-content">
-    <h1 class="hero-title">
-      Знайомства, що змінять все. Ваш квиток до справжнього кохання.
-    </h1>
-    <p class="hero-subtitle">
-      Ніяких свайпів. Лише підібрані особисто для Вас зустрічі.
-    </p>
-  </div>
-</section>
+         <section id="hero" class="hero-section">
+        <!-- CANVAS для анімації "Плавний градієнт почуттів" -->
+        <canvas class="hero-canvas" id="liquidCanvas"></canvas>
+
+        <div class="hero-content">
+            <!-- Приклад текстового логотипу -->
+            <div class="hero-logo">TICKET to LOVE</div>
+
+            <h1 class="hero-title">
+                Знайомства, що змінять все. Ваш квиток до справжнього кохання.
+            </h1>
+            <p class="hero-subtitle">
+                Ніяких свайпів. Лише підібрані особисто для Вас зустрічі.
+            </p>
+            <!-- Приклад кнопки, стилізований за допомогою Tailwind -->
+            <button class="px-8 py-3 bg-red-700 text-white font-bold rounded-xl shadow-lg hover:bg-red-800 transition transform hover:scale-105">
+                Почати пошук
+            </button>
+        </div>
+    </section>
 
 <!-- Секція з кнопками -->
 <section id="selection" class="selection-section">
@@ -134,6 +143,7 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
