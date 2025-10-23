@@ -108,88 +108,145 @@ button, input, textarea, .main-nav a, .logo {
 /* 4. HERO СЕКЦІЯ (ОНОВЛЕНО) */
 /* ========================================================================= */
 .hero-section {
+
     position: relative;
+
     height: 100vh;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     text-align: center;
+
     overflow-x: hidden;
+
     overflow-y: visible;
+
     max-width: 100vw;
+
     margin: 0 auto;
+
     box-sizing: border-box;
-    /* ДОДАНО: Базовий темний колір для миттєвого відображення */
-    background-color: #2C0B3B; 
+
 }
+
+
 
 .hero-canvas {
+
     position: absolute;
+
     top: 0;
+
     left: 0;
+
     width: 100%;
+
     height: 100%;
-    z-index: -1; /* Зберігаємо Canvas на задньому плані */
+
+    z-index: -1;
+
 }
+
+
 
 .hero-content {
-    z-index: 1; /* Зберігаємо контент на передньому плані */
+
+    z-index: 1;
+
     width: 100%;
+
     max-width: 800px;
+
     padding: 0 20px;
+
     margin: 0 auto;
+
     background: transparent;
+
     pointer-events: auto;
+
     position: relative;
+
 }
+
+
 
 .hero-title {
+
     font-size: 2.2rem;
+
     margin-bottom: 25px;
+
     font-weight: 700;
+
     background: transparent;
+
     word-break: break-word;
+
     line-height: 1.4;
-    /* ДОДАНО: Колір для читабельності на темному фоні */
-    color: #FFFFFF; 
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Опційно: тінь для кращого контрасту */
+
 }
+
+
 
 .hero-subtitle {
+
     font-size: 1.1rem;
-    /* ЗМІНЕНО: Світліший колір для читабельності */
-    color: #E0E0E0; 
+
+    color: var(--color-dark-grey);
+
     margin-bottom: 40px;
+
     word-break: break-word;
+
 }
 
-/* ДОДАТКОВІ СТИЛІ ДЛЯ ЛОГОТИПУ (якщо він є текстовим) */
-.hero-logo { 
-    color: #890B0B; /* Бордовий колір бренду */
-    text-shadow: 0 0 10px rgba(137, 11, 11, 0.7); /* М'яке світіння */
-    /* Додайте інші стилі шрифту тут (наприклад, font-size, font-weight) */
-}
+
 
 @keyframes fadeScaleIn {
+
     0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+
     80% { opacity: 1; transform: scale(1.1) translateY(0); }
+
     100% { opacity: 1; transform: scale(1) translateY(0); }
+
 }
 
-/* Адаптивність HERO (БЕЗ ЗМІН) */
+
+
+/* Адаптивність HERO */
+
 @media (max-width: 480px) {
+
     .hero-title {
+
         font-size: 1.8rem;
+
     }
+
     .hero-subtitle {
+
         font-size: 0.9rem;
+
     }
+
 }
+
+
 
 @media (min-width: 1200px) {
+
     .hero-title {
+
         font-size: calc(2.2rem + 1vw);
+
     }
+
 }
 /* 4.1 SELECTION СЕКЦІЯ */
 /* ========================================================================= */
@@ -1099,6 +1156,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ========================================================================= */
+
 
 
 
