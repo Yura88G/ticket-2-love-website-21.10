@@ -163,6 +163,14 @@ button, input, textarea, .main-nav a, .logo {
     margin-bottom: 40px; /* Ще більше простору перед кнопками */
     word-break: break-word;
 }
+.selection-section {
+  padding: 60px 20px;
+  background: transparent; /* або фон, якщо хочеш */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .selection-block {
     display: flex;
@@ -1074,6 +1082,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ========================================================================= */
+
 
 
 
