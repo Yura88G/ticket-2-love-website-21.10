@@ -249,6 +249,7 @@ button, input, textarea, .main-nav a, .logo {
 
 }
 /* 4.1 SELECTION СЕКЦІЯ */
+4.1 SELECTION СЕКЦІЯ */
 /* ========================================================================= */
 .selection-section {
     padding: 60px 20px;
@@ -326,17 +327,28 @@ button, input, textarea, .main-nav a, .logo {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Адаптивність SELECTION */
-@media (max-width: 480px) {
-    .selection-block {
-        flex-direction: column;
-    }
+/* ★★★ БАЗОВІ СТИЛІ (ДОДАЄМО ТУТ) ★★★ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .cta-button {
-        width: 100%;
-        min-width: 0;
-        margin: 10px 0;
-    }
+body, html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Без горизонтального скролу */
+}
+
+.container, 
+.main, 
+.hero-section,
+.selection-block {
+    width: 100%;
+    max-width: 1200px;  /* ← ОСНОВНА ШИРИНА ДЛЯ ДЕСКТОПУ */
+    margin: 0 auto;
+    padding: 0 15px;    /* Відступи з боків */
+}
 
 /* ========================================================================= */
 /* 5. МЕДІА-ЗАПИТИ (АДАПТАЦІЯ ДЛЯ ДЕСКТОПА - MOBILE FIRST) */
@@ -363,6 +375,16 @@ button, input, textarea, .main-nav a, .logo {
 }
 
 @media (max-width: 480px) {
+    .selection-block {
+        flex-direction: column;
+    }
+
+    .cta-button {
+        width: 100%;
+        min-width: 0;
+        margin: 10px 0;
+    }
+
     .hero-title {
         font-size: 1.8rem; /* Для дуже малих екранів */
     }
@@ -373,7 +395,6 @@ button, input, textarea, .main-nav a, .logo {
         padding: 10px 15px; /* Менше відступів */
     }
 }
-
 /* ========================================================================= */
 /* 6. СЕКЦІЯ "ЯК ЦЕ ПРАЦЮЄ" (HOW IT WORKS) */
 /* ========================================================================= */
@@ -1156,6 +1177,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ========================================================================= */
+
 
 
 
